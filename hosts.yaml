@@ -3,7 +3,6 @@ control:
   hosts:
     k8smaster:
       ansible_connection: local
-
 centos:
   hosts:
     centos1:
@@ -11,7 +10,6 @@ centos:
     centos3:
   vars:
     ansible_user: root
-
 ubuntus:
   hosts:
     ubuntu1:
@@ -22,10 +20,8 @@ ubuntus:
     ansible_user: ansible
     ansible_become: true
     ansible_become_pass: password
-
 linux:
   children:
     centos:
     ubuntus:
 ...
-
