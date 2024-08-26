@@ -3,26 +3,29 @@ control:
   hosts:
     k8smaster:
       ansible_connection: local
+
 centos:
   hosts:
     centos1:
-      ansible_port: 2222
     centos2:
     centos3:
   vars:
     ansible_user: root
-ubuntu:
+
+ubuntus:
   hosts:
     ubuntu1:
     ubuntu2:
     ubuntu3:
     ubuntu:
   vars:
+    ansible_user: ansible
     ansible_become: true
     ansible_become_pass: password
+
 linux:
   children:
     centos:
-    ubuntu:
+    ubuntus:
 ...
 
