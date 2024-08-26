@@ -1,7 +1,7 @@
 ---
 control:
   hosts:
-    bcdaf1b5a453:
+    k8smaster:
       ansible_connection: local
 centos:
   hosts:
