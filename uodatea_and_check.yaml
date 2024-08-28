@@ -1,0 +1,33 @@
+---
+- name: Install rbenv and application dependencies on Ubuntu hosts
+  hosts: ubuntus
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Install rbenv and application dependencies
+      ansible.builtin.apt:
+        name:
+          - git
+        state: present
+        update_cache: true
+      register: install_output    
+
+    - name: cehck uptime
+      ansible.builtin.command:
+        cmd: uptime
+      register: uptime_output     
+
+    - name: cehck timezone
+      ansible.builtin.command:
+        cmd: timedatectl
+      register: timezone_output
+
+    - name: Display All outputs
+      ansible.builtin.debug:
+        msg: "{{item}}"
+      loop:
+        - "installation output: {{install_output}}"        
+        - "uptime output: {{uptime_output.stdout}}"        
+        - "timezone output: {{timezone_output.stdout}}"        
+          
+               
