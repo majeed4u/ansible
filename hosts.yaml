@@ -15,7 +15,6 @@ ubuntus:
     ubuntu1:
     ubuntu2:
     ubuntu3:
-    ubuntu:
   vars:
     ansible_user: ansible
     ansible_become: true
